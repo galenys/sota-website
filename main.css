@@ -1,5 +1,5 @@
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -12,7 +12,6 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.1px solid rgba(0, 0, 0, 0.1);
 }
 
 nav a {
@@ -21,14 +20,18 @@ nav a {
     margin: 20px;
 }
 
+header {
+    text-align: center;
+    padding: 20px;
+}
+
 section {
     margin: 0;
     padding: 0 20px;
-    border: 0.1px solid rgba(0, 0, 0, 0.1);
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .emphasis {
