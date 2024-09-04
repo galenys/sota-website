@@ -113,24 +113,62 @@ h2 {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
+    body {
+        font-family: 'Roboto Mono', monospace;
+        margin: 0;
+        padding: 50px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
     .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
         left: -250px;
-        /* Hide sidebar by default */
-        width: 200px;
-        font-size: 16px;
-        /* Maintain sidebar font size on mobile */
+        /* Initially hide the sidebar */
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 100px;
+        z-index: 1000;
+        transition: 0.3s;
+        font-size: 18px;
+        /* Set font size for sidebar */
     }
 
     .sidebar.sidebar-open {
         left: 0;
-        /* Show sidebar when open */
+        /* Show the sidebar when open */
+    }
+
+    .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        color: #f1f1f1;
     }
 
     .sidebar .nav-toggle {
-        display: block;
-        /* Show the hamburger icon on mobile */
-        font-size: 24px;
-        /* Adjust hamburger icon size on mobile */
+        font-size: 50px;
+        /* Set font size for hamburger icon */
+        cursor: pointer;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        color: #111;
+        z-index: 1001;
+        transition: 0.3s;
+    }
+
+    .sidebar.sidebar-open .nav-toggle {
+        color: white;
     }
 }
