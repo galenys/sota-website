@@ -1,73 +1,136 @@
+/* Base Styles */
 body {
     font-family: 'Roboto Mono', monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    width: min(100%, 1000px);
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-nav {
+h2 {
+    font-weight: bold;
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    /* Initially hide the sidebar */
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    z-index: 1000;
+    transition: 0.3s;
+    font-size: 18px;
+    /* Set font size for sidebar */
+}
+
+.sidebar.sidebar-open {
+    left: 0;
+    /* Show the sidebar when open */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .nav-toggle {
+    font-size: 30px;
+    /* Set font size for hamburger icon */
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    color: #111;
+    z-index: 1001;
+    transition: 0.3s;
+}
+
+.sidebar.sidebar-open .nav-toggle {
+    color: white;
+}
+
+.content-wrapper {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: #000;
-    margin: 20px;
-}
-
-header {
-    text-align: center;
     padding: 20px;
 }
 
-section {
-    margin: 0;
-    padding: 0 20px;
+.content {
+    max-width: 800px;
+    width: 100%;
+    font-size: 18px;
+    /* Set font size for content */
 }
 
-.bold {
-    font-weight: 400;
+.team-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-.emphasis {
-    font-style: italic;
+.team-member img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+.team-member-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.team-member-info p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.team-member-social a {
+    color: #818181;
+    font-size: 24px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.team-member-social a:hover {
+    color: #f1f1f1;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
+    .sidebar {
+        left: -250px;
+        /* Hide sidebar by default */
+        width: 200px;
+        font-size: 16px;
+        /* Maintain sidebar font size on mobile */
     }
 
-    nav a {
-        margin: 10px 0;
+    .sidebar.sidebar-open {
+        left: 0;
+        /* Show sidebar when open */
     }
 
-    section {
-        padding: 0 10px;
-    }
-
-    body {
-        width: 100%;
-        padding: 0 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav a {
-        margin: 5px 0;
-    }
-
-    section {
-        padding: 0 5px;
-    }
-
-    body {
-        padding: 0 5px;
+    .sidebar .nav-toggle {
+        display: block;
+        /* Show the hamburger icon on mobile */
+        font-size: 24px;
+        /* Adjust hamburger icon size on mobile */
     }
 }
